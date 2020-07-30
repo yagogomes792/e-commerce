@@ -1,0 +1,9 @@
+body {
+    color: red;
+}
+
+img.img-fluid{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
