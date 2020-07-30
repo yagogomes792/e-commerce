@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import ContactForm, LoginForm, RegisterForm
 from django.contrib.auth import login, get_user_model, authenticate
+from core.models import Product
+from django.views.generic import ListView
 
 # Create your views here.
 def home_page(request):
@@ -63,3 +65,12 @@ def register_page(request):
         new_user = User.objects.create_user(username, email, password)
         print(new_user)
     return render(request, 'auth/register.html', context)
+
+
+class ProductListView(ListView):
+    queryset = Product.objects.all()
+    template_name = 'products/list.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(ProductListView, self).get_context_data(*args, **kwargs)
+        return context
