@@ -18,7 +18,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 from core import views
-from core.views import ProductListView, ProductDetailView
+from core.views import ProductListView, ProductDetailView, ProductFeaturedListView, ProductFeaturedDetailView
 
 urlpatterns = [
     path('', views.home_page),
@@ -28,6 +28,8 @@ urlpatterns = [
     path('register/', views.register_page),
     path('products/', ProductListView.as_view()),
     path('products/<int:pk>', ProductDetailView.as_view()),
+    path('featured/', ProductFeaturedListView.as_view()),
+    path('featured/<int:pk>', ProductFeaturedDetailView.as_view()),
     path('admin/', admin.site.urls),
 ]
 
