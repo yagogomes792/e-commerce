@@ -3,5 +3,11 @@
 {{ object.description }}
 =======
 {{ object.description }} <br>
+<<<<<<< HEAD
 <img src="{{ object.image.url }}" class="img-fluid" id="vitrine" style="width: 200; "height="200">
+>>>>>>> dev-branch
+=======
+{% if object.image %}
+<img src="{{ object.image.url }}" class="img-fluid" style="width: 200; "height="200">
+{% endif %}
 >>>>>>> dev-branch
