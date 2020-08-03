@@ -16,13 +16,9 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from core import views
-from core.views import (ProductListView, 
-ProductDetailView, 
-ProductFeaturedListView, 
-ProductFeaturedDetailView,
-ProductDetailSlugView)
+
 
 urlpatterns = [
     path('', views.home_page),
@@ -30,12 +26,8 @@ urlpatterns = [
     path('contact/', views.contact_page),
     path('login/', views.login_page),
     path('register/', views.register_page),
-    path('products/', ProductListView.as_view()),
-    path('products/<int:pk>', ProductDetailView.as_view()),
-    path('featured/', ProductFeaturedListView.as_view()),
-    path('featured/<int:pk>', ProductFeaturedDetailView.as_view()),
-    path('products/<slug:slug>/', ProductDetailSlugView.as_view()),
-    path('admin/', admin.site.urls),
+    path('products/', include('core.urls')),
+    path('admin/', admin.site.urls)
 ]
 
 if settings.DEBUG:
