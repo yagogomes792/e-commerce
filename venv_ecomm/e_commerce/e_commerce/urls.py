@@ -26,7 +26,7 @@ urlpatterns = [
     path('contact/', views.contact_page),
     path('login/', views.login_page),
     path('register/', views.register_page),
-    path('products/', include('core.urls')),
+    path('products/', include('core.urls', namespace="products")),
     path('admin/', admin.site.urls)
 ]
 
