@@ -1,1 +1,34 @@
-<h1>{{ logo }}</h1>
+{% url 'home' as home_url %}
+{% url 'about' as about_url %}
+{% url 'contact' as contact_url %}
+{% url 'products:list' as products_url %}
+{% url 'login' as login_url %}
+{% url 'register' as register_url %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{{ home_url }}">
+        <img src="C:\Users\Yago\Desktop\django_ecommerce\venv_ecomm\e_commerce\static_local\img\logo.jpg" class="d-inline-block align-top" width="30" height="30" alt="">
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item {% if request.path == home_url %} active {% endif %}">
+          <a class="nav-link" href="{{ home_url }}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item {% if request.path == products_url%} active {% endif %}">
+          <a class="nav-link" href="{{ products_url }}">Produtos</a>
+        </li>
+        <li class="nav-item {% if request.path == contact_url%} active {% endif %}">
+          <a class="nav-link" href="{{ contact_url}}">Contato</a>
+        </li>
+        <li class="nav-item {% if request.path == about_url%} active {% endif %}">
+            <a class="nav-link" href="{{ about_url }}">About</a>
+        </li>
+        <li class="nav-item {% if request.path == login_url%} active {% endif %}">
+          <a class="nav-link" href="{{ login_url }}">Login</a>
+        </li>
+        <li class="nav-item {% if request.path == register_url%} active {% endif %}">
+            <a class="nav-link" href="{{ register_url }}">Cadastrar</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
