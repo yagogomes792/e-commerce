@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {{ object.title }} <br>
 <<<<<<< HEAD
 {{ object.description }}
@@ -10,4 +11,15 @@
 {% if object.image %}
 <img src="{{ object.image.url }}" class="img-fluid" style="width: 200; "height="200">
 {% endif %}
+>>>>>>> dev-branch
+=======
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    {{ object.title }} <br>
+    {{ object.description }} <br>
+    {% if object.image %}
+    <img src="{{ object.image.url }}" class="img-fluid" style="width: 200; "height="200">
+    {% endif %}
+{% endblock %}
 >>>>>>> dev-branch
