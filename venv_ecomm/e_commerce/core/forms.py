@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 class ContactForm(forms.Form):
     fullname = forms.CharField(
-        error_messages={'required': 'Éobrigatório o preenchimento do nome completo'},
+        error_messages={'required': 'É obrigatório o preenchimento do nome completo'},
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control',
@@ -23,7 +23,7 @@ class ContactForm(forms.Form):
     )
     content = forms.CharField(
         error_messages={'required': 'É obrigatório escrever uma mensagem'},
-        widget=forms.TextInput(
+        widget=forms.Textarea(
             attrs={
                 'class': 'form-control',
                 'placeholder': 'Digite sua mensagem'
