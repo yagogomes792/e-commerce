@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404
 from .forms import ContactForm, LoginForm, RegisterForm
-from django.contrib.auth import login, get_user_model, authenticate
+from django.contrib.auth import login, logout, get_user_model, authenticate
 from core.models import Product
 from django.views.generic import ListView, DetailView
 
@@ -50,6 +50,13 @@ def login_page(request):
         else:
             print('Login ou senha inválidos')
     return render(request, 'auth/login.html', context)
+
+def logout_page(request):
+    context = {
+        'content': 'Logout feito com sucesso!'
+    }
+    logout(request)
+    return render(request, 'auth/logout.html', context)
 
 User = get_user_model()
 def register_page(request):
