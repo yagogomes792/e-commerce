@@ -89,8 +89,6 @@ class ProductDetailView(DetailView):
         if instance is None:
             raise Http404('Esse produto não existe!')
         return instance
-<<<<<<< HEAD
-=======
 
 class ProductFeaturedListView(ListView):
     template_name = 'products/list.html'
@@ -116,4 +114,3 @@ class ProductDetailSlugView(DetailView):
             qs = Product.objects.filter(slug=slug, active=True)
             instance = qs.first()
         return instance
->>>>>>> dev-branch
