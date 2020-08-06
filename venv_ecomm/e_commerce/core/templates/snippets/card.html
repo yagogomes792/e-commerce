@@ -1,12 +1,18 @@
-<div class="card text-center" style="width: 18rem;">
-    {% if instance.image %}
-        <a href="{% url 'products:detail' slug=instance.slug %}">
-            <img src="{{ instance.image.url}}" class="card-img-top" alt="">
-        </a>
-    {% endif %}
-        <div class="card-body">
-        <h5 class="card-title">{{ instance.title }}</h5>
-        <p class="card-text">{{ instance.description | truncatewords:14 }}</p>
-        <a href="{% url 'products:detail' slug=instance.slug %}" class="btn btn-primary">Detalhes</a>
+<div class="container">
+    <div class="row">
+        <div class="col-12 mb-4">
+            <div class="card text-center" style="width: 12rem;">
+                {% if instance.image %}
+                    <a href="{% url 'products:detail' slug=instance.slug %}">
+                        <img src="{{ instance.image.url}}" class="card-img-top" alt="">
+                    </a>
+                {% endif %}
+                    <div class="card-body">
+                    <h5 class="card-title">{{ instance.title }}</h5>
+                    <p class="card-text">{{ instance.description | truncatewords:5 }}</p>
+                    <a href="{% url 'products:detail' slug=instance.slug %}" class="btn btn-primary">Detalhes</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

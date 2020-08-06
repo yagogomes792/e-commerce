@@ -1,5 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="row mb-3">
+    {% if query %}
+    <div class="col-12">
+        Resultado para <b>{{ query }}</b>
+        <hr>
+    </div>
+    {% else %}
+    <div class="col-4 md-8 mx-auto py-3">
+        {% include 'search/snippet/search-form.html' %}
+    </div>
+    <div class="col-12">
+        <hr>
+    </div>
+    {% endif %}
+</div>
     <div class="container">
         <div class="row">
             {% for obj in object_list %}

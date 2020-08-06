@@ -2,6 +2,7 @@ from django.db import models
 from .utils import unique_slug_generator
 from django.db.models.signals import pre_save
 from django.urls import reverse
+from django.db.models import Q
 
 # Create your models here.
 class ProducQuerySet(models.query.QuerySet):
@@ -10,6 +11,10 @@ class ProducQuerySet(models.query.QuerySet):
     
     def featured(self):
         return self.filter(featured = True, active = True)
+    
+    def search(self, query):
+        lookups = Q(title__contains=query) | Q(description__contains=query) | Q(price__contains=query)
+        return self.filter(lookups).distinct()
 
 class ProductManager(models.Manager):
     def get_queryset(self):
@@ -26,6 +31,9 @@ class ProductManager(models.Manager):
         if qs.count() == 1:
             return qs.first()
         return None
+    
+    def search(self, query):
+        return self.get_queryset().active().search(query)
 
 class Product(models.Model):
     title = models.CharField(max_length=120)
@@ -35,7 +43,6 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products/', null=True, blank=True)
     featured = models.BooleanField(default=False)
     active = models.BooleanField(default=True)
-    timestamp = models.DateTimeField(auto_now_add=True)
 
     objects = ProductManager()
 
