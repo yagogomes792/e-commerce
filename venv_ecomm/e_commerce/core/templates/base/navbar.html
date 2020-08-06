@@ -6,9 +6,10 @@
 {% url 'logout' as logout_url %}
 {% url 'register' as register_url %}
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="{{ home_url }}">
-        <img src="C:\Users\Yago\Desktop\django_ecommerce\venv_ecomm\e_commerce\static_local\img\logo.jpg" class="d-inline-block align-top" width="30" height="30" alt="">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+  <div class="container">
+    <a class="navbar mr-4" href="{{ home_url }}">
+        <img src="logo.png" class="d-inline-block align-top" width="30" height="30" alt="logo" >
     </a>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
@@ -38,4 +39,9 @@
         {% endif %}
       </ul>
     </div>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+    </form>
+  </div>
   </nav>

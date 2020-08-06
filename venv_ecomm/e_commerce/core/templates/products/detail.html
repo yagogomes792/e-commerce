@@ -1,30 +1,6 @@
-<<<<<<< HEAD
-{{ object.title }} <br>
-<<<<<<< HEAD
-{{ object.description }}
-=======
-{{ object.description }} <br>
-<<<<<<< HEAD
-<img src="{{ object.image.url }}" class="img-fluid" id="vitrine" style="width: 200; "height="200">
->>>>>>> dev-branch
-=======
-{% if object.image %}
-<img src="{{ object.image.url }}" class="img-fluid" style="width: 200; "height="200">
-{% endif %}
->>>>>>> dev-branch
-=======
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<<<<<<< HEAD
-    {{ object.title }} <br>
-    {{ object.description }} <br>
-    {% if object.image %}
-    <img src="{{ object.image.url }}" class="img-fluid" style="width: 200; "height="200">
-    {% endif %}
-{% endblock %}
->>>>>>> dev-branch
-=======
     <div class="container">
         <div class="row">
             <div class="col">
@@ -36,6 +12,5 @@
             </div>
         </div>
     </div>
-
 {% endblock %}
->>>>>>> dev-branch
+
